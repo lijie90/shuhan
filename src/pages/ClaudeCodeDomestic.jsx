@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './ClaudeCodeDomestic.css'
 
 const steps = [
@@ -412,7 +413,7 @@ export default function ClaudeCodeDomestic() {
     <div className="tutorial-page">
       <div className="tutorial-header">
         <div className="tutorial-breadcrumb">
-          <a href="/">首页</a> / 对接国产大模型
+          <Link to="/">首页</Link> / 对接国产大模型
         </div>
         <h1>Claude Code 对接国产大模型教程</h1>
         <p className="tutorial-meta">

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ClaudeCodeDomestic.css'
 
 const steps = [
@@ -242,7 +243,7 @@ export default function DeployGithub() {
     <div className="tutorial-page">
       <div className="tutorial-header">
         <div className="tutorial-breadcrumb">
-          <a href="/">首页</a> / 部署教程
+          <Link to="/">首页</Link> / 部署教程
         </div>
         <h1>部署到 GitHub Pages / Gitee Pages</h1>
         <p className="tutorial-meta">
