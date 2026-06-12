@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useTheme } from './ThemeContext'
 import Home from './pages/Home'
 import ClaudeCodeDomestic from './pages/ClaudeCodeDomestic'
+import CodexDomestic from './pages/CodexDomestic'
 import DeployGithub from './pages/DeployGithub'
 import './App.css'
 
@@ -84,6 +85,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/claude-code-domestic" element={<ClaudeCodeDomestic />} />
+          <Route path="/codex-domestic" element={<CodexDomestic />} />
           <Route path="/deploy-github" element={<DeployGithub />} />
         </Routes>
       </main>

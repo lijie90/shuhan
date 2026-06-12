@@ -56,6 +56,19 @@ const tutorials = [
     time: '15 min',
   },
   {
+    path: '/codex-domestic',
+    title: 'Codex 对接国产大模型',
+    description: '通过 CC Switch 将 OpenAI Codex 配置为使用 DeepSeek、通义千问、智谱 GLM 等国产大模型，一键切换 Provider。',
+    tags: ['Codex', 'CC Switch', 'DeepSeek', 'Qwen'],
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+      </svg>
+    ),
+    level: '入门',
+    time: '10 min',
+  },
+  {
     path: '/deploy-github',
     title: '部署到 GitHub / 码云',
     description: '将 React 项目部署到 GitHub Pages 或 Gitee Pages，支持自动化 CI/CD 和 SPA 路由，国内推荐码云。',

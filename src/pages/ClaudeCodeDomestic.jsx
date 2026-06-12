@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './ClaudeCodeDomestic.css'
 
@@ -282,7 +282,7 @@ brew install --cask cc-switch
           <li><strong>打开 CC Switch</strong> — 首次启动会检测已安装的 AI 工具</li>
           <li><strong>添加 Provider</strong> — 点击 "Add Provider" → 选择预设（如 DeepSeek）→ 填入 API Key</li>
           <li><strong>启用 Provider</strong> — 在列表中选择刚添加的 Provider → 点击 "Enable"</li>
-          <li><strong>启动 Claude Code</strong> — CC Switch 会自动配置好环境变量，直接运行 <code>claude</code> 即可</li>
+          <li><strong>启动 Claude Code</strong> — 直接运行 <code>claude</code> 即可</li>
         </ol>
 
         <pre><code>{`# CC Switch 启用 Provider 后，无需手动设置环境变量
@@ -408,6 +408,25 @@ function StepNav({ activeId }) {
 
 export default function ClaudeCodeDomestic() {
   const [activeId, setActiveId] = useState(steps[0].id)
+  const contentRef = useRef(null)
+
+  useEffect(() => {
+    const headings = contentRef.current?.querySelectorAll('.step-section')
+    if (!headings) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting)
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id)
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+    )
+
+    headings.forEach(h => observer.observe(h))
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="tutorial-page">
@@ -434,7 +453,7 @@ export default function ClaudeCodeDomestic() {
           <StepNav activeId={activeId} />
         </aside>
 
-        <article className="tutorial-content">
+        <article className="tutorial-content" ref={contentRef}>
           {steps.map((step, i) => (
             <section key={step.id} id={step.id} className="step-section">
               <h2>

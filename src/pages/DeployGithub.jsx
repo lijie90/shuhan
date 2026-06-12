@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './ClaudeCodeDomestic.css'
 
@@ -239,6 +240,27 @@ export default defineConfig({
 ]
 
 export default function DeployGithub() {
+  const [activeId, setActiveId] = useState(steps[0].id)
+  const contentRef = useRef(null)
+
+  useEffect(() => {
+    const headings = contentRef.current?.querySelectorAll('.step-section')
+    if (!headings) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting)
+        if (visible.length > 0) {
+          setActiveId(visible[0].target.id)
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 }
+    )
+
+    headings.forEach(h => observer.observe(h))
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <div className="tutorial-page">
       <div className="tutorial-header">
@@ -264,7 +286,7 @@ export default function DeployGithub() {
             <ul>
               {steps.map((step, i) => (
                 <li key={step.id}>
-                  <a href={`#${step.id}`}>
+                  <a href={`#${step.id}`} className={activeId === step.id ? 'active' : ''}>
                     <span className="step-num">{i + 1}</span>
                     {step.title}
                   </a>
@@ -274,7 +296,7 @@ export default function DeployGithub() {
           </nav>
         </aside>
 
-        <article className="tutorial-content">
+        <article className="tutorial-content" ref={contentRef}>
           {steps.map((step, i) => (
             <section key={step.id} id={step.id} className="step-section">
               <h2>
