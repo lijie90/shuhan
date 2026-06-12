@@ -1,0 +1,36 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# JavaScript & TypeScript
+*.js text diff=javascript
+*.jsx text diff=javascript
+*.ts text diff=typescript
+*.tsx text diff=typescript
+
+# Styles
+*.css text
+*.scss text
+
+# Markup
+*.html text diff=html
+*.json text
+*.md text diff=markdown
+
+# Config
+*.yml text
+*.yaml text
+
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
