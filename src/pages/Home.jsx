@@ -57,9 +57,9 @@ const tutorials = [
   },
   {
     path: '/deploy-github',
-    title: '部署到 GitHub Pages',
-    description: '从零开始将 React 项目部署到 GitHub Pages，配置自动化 CI/CD，解决 SPA 路由问题，支持自定义域名。',
-    tags: ['GitHub Pages', 'CI/CD', '部署'],
+    title: '部署到 GitHub / 码云',
+    description: '将 React 项目部署到 GitHub Pages 或 Gitee Pages，支持自动化 CI/CD 和 SPA 路由，国内推荐码云。',
+    tags: ['GitHub Pages', 'Gitee', '部署'],
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
